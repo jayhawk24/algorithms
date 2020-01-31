@@ -13,7 +13,7 @@ class Vertex:
 class Graph:
     vertices = {}
 
-    def add_ver(self,vertex):
+    def add_vertex(self,vertex):
         if isinstance(vertex, Vertex) and vertex.name not in self.vertices:
             self.vertices[vertex.name]=vertex
             return True
@@ -36,3 +36,12 @@ class Graph:
 
 g = Graph()
 a = Vertex('A')
+g.add_vertex(a)
+g.add_vertex(Vertex('B'))
+for i in range(ord('A'),ord('K')):
+    g.add_vertex(Vertex(chr(i)))
+
+edges = ['AB' , 'AE' , 'BF' , 'CG' ,'DE','DH','EH','FG','FI','FJ','GJ','HI']
+for edge in edges:
+    g.add_edge(edge[:1],edge[1:])
+g.print_graph()
